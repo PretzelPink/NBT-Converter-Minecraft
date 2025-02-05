@@ -70,7 +70,7 @@ def mapBlock(keyBlock):
 
 with nbtlib.load(nbt) as ee:
     for x in ee.find('palette'):
-        if(x['Name'][0:1] == 'f'):
+        if(x['Name'][0:1] == 'f'):  # Checks for f as first character in the provided string I believe, if you are converting blocks from a mod, use the minecraft mod id (first letter)
             #print(x['Name'])
             l.append(x['Name'])
             #x['Name'] = nbtlib.String('minecraft:stone_stairs')
@@ -131,7 +131,6 @@ if(True):#input("Apply to " + nbt + "? y/n  ") == 'y'):
                 #print(('minecraft:'+str(newr[h]))) #prints all minecraft: blocks used
                 i+=1
                 #wrties to textTest to check if string has \n #t.write(nbtlib.String('minecraft:'+str(newr[h])))
-'minecraft:stone_stairs'
 
 
 fs = open("conversionPairKey.txt", 'w')
@@ -144,4 +143,4 @@ t.close()
 #<class 'nbtlib.tag.String'>
 
 #notes, fix to avoid panes or blocks that dont support carpet or signs
-#       ensure blocks are being removed from the list correctly to avoid multiple blocks with same tag
+#       ensure blocks are being removed from the list correctly to avoid multiple blocks with same tag - Issue caused by older minecraft version (setting blocks that hadnt been added to minecraft yet)
